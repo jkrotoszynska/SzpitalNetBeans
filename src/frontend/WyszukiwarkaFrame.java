@@ -27,16 +27,30 @@ public class WyszukiwarkaFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        background.setBackground(new java.awt.Color(249, 249, 249));
+        background.setBackground(java.awt.SystemColor.activeCaption);
         background.setFocusable(false);
         background.setFont(new java.awt.Font("SF Pro Display", 0, 12)); // NOI18N
         background.setInheritsPopupMenu(true);
         background.setMinimumSize(new java.awt.Dimension(1000, 670));
         background.setPreferredSize(new java.awt.Dimension(1000, 670));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 54)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Szpital MediNova");
+        background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1000, -1));
+
+        jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(68, 107, 147));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("centrum zarządzania historią leczeń");
+        background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,5 +105,7 @@ public class WyszukiwarkaFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
