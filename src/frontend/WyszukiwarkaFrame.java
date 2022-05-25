@@ -106,8 +106,8 @@ public class WyszukiwarkaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_bWyszukajActionPerformed
 
     private void powrotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powrotButtonActionPerformed
-        new EkranGlownyFrame().setVisible(true);
-        this.setVisible(false);
+//        new EkranGlownyFrame().setVisible(true);
+//        this.setVisible(false);
     }//GEN-LAST:event_powrotButtonActionPerformed
 
     public static void main(String args[]) {
