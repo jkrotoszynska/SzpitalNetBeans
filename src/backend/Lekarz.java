@@ -1,6 +1,7 @@
 package backend;
 
 public class Lekarz {
+    
     private int idLekarza;
     private String imie, nazwisko; 
     private String specjalizacja, nazwaOddzialu;
