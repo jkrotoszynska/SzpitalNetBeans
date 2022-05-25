@@ -4,6 +4,13 @@
  */
 package frontend;
 
+import backend.Lekarz;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+
 /**
  *
  * @author Justyna
@@ -20,6 +27,23 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
         glowny.setTitle("Panel lekarza");
         
         glowny.setSize(1000,700);
+    }
+    
+    EntityManagerFactory emf;
+    public EntityManager getEntityManager() {
+        if (emf == null) {
+            emf = Persistence.createEntityManagerFactory("SzpitalPU");
+        }
+        return emf.createEntityManager();
+    }
+    
+    public List<Lekarz> signIn(String login, String password){
+        EntityManager em = getEntityManager();
+        TypedQuery<Lekarz> q = em.createNamedQuery("Lekarz.findByIdLekarzaAndHaslo", Lekarz.class);
+        q.setParameter("idLekarza", login);
+        q.setParameter("haslo", password);
+        List<Lekarz> result = q.getResultList();
+        return result;
     }
 
     /**
@@ -184,8 +208,15 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
 
     private void bZalogujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bZalogujActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        glowny.setVisible(true);
+        String login = tLogin.getText();
+        String password = String.valueOf(jPasswordField1.getPassword());
+        
+        if (signIn(login, password) != null) {
+            this.setVisible(false);
+            glowny.setVisible(true);
+        }
+        
+        
     }//GEN-LAST:event_bZalogujActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed

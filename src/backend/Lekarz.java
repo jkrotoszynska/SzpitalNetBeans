@@ -29,7 +29,8 @@ import javax.persistence.Table;
     @NamedQuery(name = "Lekarz.findByHaslo", query = "SELECT l FROM Lekarz l WHERE l.haslo = :haslo"),
     @NamedQuery(name = "Lekarz.findByImie", query = "SELECT l FROM Lekarz l WHERE l.imie = :imie"),
     @NamedQuery(name = "Lekarz.findByNazwisko", query = "SELECT l FROM Lekarz l WHERE l.nazwisko = :nazwisko"),
-    @NamedQuery(name = "Lekarz.findBySpecjalizacja", query = "SELECT l FROM Lekarz l WHERE l.specjalizacja = :specjalizacja")})
+    @NamedQuery(name = "Lekarz.findBySpecjalizacja", query = "SELECT l FROM Lekarz l WHERE l.specjalizacja = :specjalizacja"),
+    @NamedQuery(name = "Lekarz.findByIdLekarzaAndHaslo", query = "SELECT l FROM Lekarz l WHERE l.idLekarza = :idLekarza AND l.haslo = :haslo")})
 public class Lekarz implements Serializable {
 
     private static final long serialVersionUID = 1L;
