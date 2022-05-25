@@ -9,9 +9,11 @@ import javax.persistence.TypedQuery;
 
 public class WyszukiwarkaFrame extends javax.swing.JFrame {
 
-    public WyszukiwarkaFrame() {
+    private EkranGlownyFrame glowny;
+    
+    public WyszukiwarkaFrame(EkranGlownyFrame glowny) {
         initComponents();
-        
+        this.glowny = glowny;
     }
     
     EntityManagerFactory emf;
@@ -131,17 +133,17 @@ public class WyszukiwarkaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_bWyszukajActionPerformed
 
     private void powrotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powrotButtonActionPerformed
-//        new EkranGlownyFrame().setVisible(true);
-//        this.setVisible(false);
+        glowny.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_powrotButtonActionPerformed
 
     public static void main(String args[]) {
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new WyszukiwarkaFrame().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new WyszukiwarkaFrame().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -154,5 +156,4 @@ public class WyszukiwarkaFrame extends javax.swing.JFrame {
     private javax.swing.JButton powrotButton;
     // End of variables declaration//GEN-END:variables
 
-    private EkranGlownyFrame glowny;
 }

@@ -8,8 +8,9 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
     
     public EkranGlownyFrame(Lekarz lekarz) {
         initComponents();
+        this.lekarz = lekarz;
         
-        pacjenci = new MoiPacjenciFrame();
+        pacjenci = new MoiPacjenciFrame(this, lekarz);
         pacjenci.setTitle("Panel lekarza");
         pacjenci.setSize(1000,700);
         
@@ -18,7 +19,7 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
         this.jSpecjalizacja.setText("Specjalizacja: " + String.valueOf(lekarz.getSpecjalizacja()));
         this.jOddział.setText("Oddział: " + String.valueOf(lekarz.getNazwaOddzialu().getNazwaOddzialu()));
         
-        wyszukiwarka = new WyszukiwarkaFrame();
+        wyszukiwarka = new WyszukiwarkaFrame(this);
         wyszukiwarka.setTitle("Wyszukiwarka");
         wyszukiwarka.setSize(1000,700);
         

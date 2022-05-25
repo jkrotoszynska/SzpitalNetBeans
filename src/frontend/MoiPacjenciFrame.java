@@ -1,9 +1,16 @@
 package frontend;
 
-public class MoiPacjenciFrame extends javax.swing.JFrame {
+import backend.Lekarz;
 
-    public MoiPacjenciFrame() {
+public class MoiPacjenciFrame extends javax.swing.JFrame {
+    
+    private EkranGlownyFrame glowny;
+    Lekarz lekarz;
+
+    public MoiPacjenciFrame(EkranGlownyFrame glowny, Lekarz lekarz) {
         initComponents();
+        this.glowny = glowny;
+        this.lekarz = lekarz;
         
     }
 
@@ -93,17 +100,17 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void powrotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powrotButtonActionPerformed
-//        new EkranGlownyFrame().setVisible(true);
-//        this.setVisible(false);
+        glowny.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_powrotButtonActionPerformed
 
     public static void main(String args[]) {
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MoiPacjenciFrame().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new MoiPacjenciFrame().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -116,5 +123,4 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
     private javax.swing.JButton powrotButton;
     // End of variables declaration//GEN-END:variables
 
-    private EkranGlownyFrame glowny;
 }
