@@ -5,9 +5,6 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
     public MoiPacjenciFrame() {
         initComponents();
         
-//        glowny = new EkranGlownyFrame();
-//        glowny.setTitle("Panel lekarza");
-//        glowny.setSize(1000,700);
     }
 
     @SuppressWarnings("unchecked")
@@ -96,8 +93,8 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void powrotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powrotButtonActionPerformed
-//        glowny.setVisible(true);
-//        this.setVisible(false);
+        new EkranGlownyFrame().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_powrotButtonActionPerformed
 
     public static void main(String args[]) {

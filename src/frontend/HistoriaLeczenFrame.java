@@ -4,13 +4,9 @@ public class HistoriaLeczenFrame extends javax.swing.JFrame {
 
     public HistoriaLeczenFrame() {
         initComponents();
-        
-//        glowny = new EkranGlownyFrame();
-//        glowny.setTitle("Panel lekarza");
-//        glowny.setSize(1000,700);
+
     }
 
- 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -70,8 +66,8 @@ public class HistoriaLeczenFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void powrotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powrotButtonActionPerformed
-        //this.setVisible(false);
-        //glowny.setVisible(true);
+        new EkranGlownyFrame().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_powrotButtonActionPerformed
 
     public static void main(String args[]) {
