@@ -5,9 +5,6 @@ public class WyszukiwarkaFrame extends javax.swing.JFrame {
     public WyszukiwarkaFrame() {
         initComponents();
         
-//        glowny = new EkranGlownyFrame();
-//        glowny.setTitle("Panel lekarza");
-//        glowny.setSize(1000,700);
     }
 
     @SuppressWarnings("unchecked")
@@ -109,8 +106,8 @@ public class WyszukiwarkaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void powrotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powrotButtonActionPerformed
-//        this.setVisible(false);
-//        glowny.setVisible(true);
+        new EkranGlownyFrame().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_powrotButtonActionPerformed
 
     public static void main(String args[]) {
