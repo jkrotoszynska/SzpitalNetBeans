@@ -48,7 +48,8 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
         background.setFocusable(false);
         background.setFont(new java.awt.Font("SF Pro Display", 0, 12)); // NOI18N
         background.setInheritsPopupMenu(true);
-        background.setMinimumSize(new java.awt.Dimension(1000, 670));
+        background.setMaximumSize(new java.awt.Dimension(1000, 730));
+        background.setMinimumSize(new java.awt.Dimension(1000, 700));
         background.setPreferredSize(new java.awt.Dimension(1000, 670));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -231,9 +232,7 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 664, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
