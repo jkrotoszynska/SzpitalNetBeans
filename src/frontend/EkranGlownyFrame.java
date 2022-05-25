@@ -13,7 +13,10 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
         pacjenci.setTitle("Panel lekarza");
         pacjenci.setSize(1000,700);
         
-        this.jId.setText(String.valueOf(lekarz.getIdLekarza()));
+        this.jImieNazwisko.setText(String.valueOf(lekarz.getImie()) + ' ' + String.valueOf(lekarz.getNazwisko()));
+        this.jId.setText("ID: " + String.valueOf(lekarz.getIdLekarza()));
+        this.jSpecjalizacja.setText("Specjalizacja: " + String.valueOf(lekarz.getSpecjalizacja()));
+        this.jOddział.setText("Oddział: " + String.valueOf(lekarz.getNazwaOddzialu().getNazwaOddzialu()));
         
         wyszukiwarka = new WyszukiwarkaFrame();
         wyszukiwarka.setTitle("Wyszukiwarka");
@@ -184,40 +187,44 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
 
         jAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/szpital/images/avat.png"))); // NOI18N
 
+        jImieNazwisko.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jImieNazwisko.setText("Imie Naziwsko");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jImieNazwisko, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jOddział, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jSpecjalizacja, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
-                                .addComponent(jId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(0, 29, Short.MAX_VALUE))))
+                        .addComponent(jImieNazwisko, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jOddział, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jSpecjalizacja, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+                            .addComponent(jId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(0, 29, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jAvatar)
-                    .addComponent(jImieNazwisko, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jAvatar))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(jImieNazwisko, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(54, 54, 54)
                 .addComponent(jId)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSpecjalizacja)
                 .addGap(18, 18, 18)
                 .addComponent(jOddział)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         background.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 480, 440));
