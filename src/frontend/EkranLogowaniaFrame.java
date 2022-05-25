@@ -8,6 +8,7 @@ import backend.Lekarz;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
@@ -37,13 +38,22 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
         return emf.createEntityManager();
     }
     
-    public List<Lekarz> signIn(int login, String password){
-        EntityManager em = getEntityManager();
-        TypedQuery<Lekarz> q = em.createNamedQuery("Lekarz.findByIdLekarzaAndHaslo", Lekarz.class);
+    public Lekarz signIn(int login, String password){
+        EntityManager em = this.getEntityManager();
+        TypedQuery<Lekarz> q = em.createNamedQuery("Lekarz.findByIdLekarza", Lekarz.class);
         q.setParameter("idLekarza", login);
-        q.setParameter("haslo", password);
-        List<Lekarz> result = q.getResultList();
-        return result;
+        try{
+            Lekarz loggedLekarz = q.getSingleResult();
+//          q.setParameter("haslo", password);
+            System.out.print(loggedLekarz.getHaslo().toString());
+            if (loggedLekarz.getHaslo().toString().equals(password)) {
+                return loggedLekarz;
+            }
+            
+        }catch(NoResultException e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
@@ -208,14 +218,19 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
 
     private void bZalogujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bZalogujActionPerformed
         // TODO add your handling code here:
-        int login = Integer.parseInt(this.tLogin.getText());
-        String password = String.valueOf(jPasswordField1.getPassword());
-        
-        if (signIn(login, password) != null) {
-            this.setVisible(false);
-            glowny.setVisible(true);
-        }
-        
+        try{
+            int login = Integer.parseInt(this.tLogin.getText());
+            String password = String.valueOf(jPasswordField1.getPassword()).toString();
+//        System.out.print(signIn(login, password));
+            Lekarz lekarz = signIn(login, password);
+            if (lekarz != null) {
+                System.out.print(lekarz);
+                this.setVisible(false);
+                glowny.setVisible(true);
+            }
+        }catch(NumberFormatException e){
+            e.printStackTrace();
+        }        
         
     }//GEN-LAST:event_bZalogujActionPerformed
 
