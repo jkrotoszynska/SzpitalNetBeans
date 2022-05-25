@@ -184,6 +184,7 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
 
     private void bZalogujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bZalogujActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
         glowny.setVisible(true);
     }//GEN-LAST:event_bZalogujActionPerformed
 
