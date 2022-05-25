@@ -93,8 +93,8 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void powrotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powrotButtonActionPerformed
-        new EkranGlownyFrame().setVisible(true);
-        this.setVisible(false);
+//        new EkranGlownyFrame().setVisible(true);
+//        this.setVisible(false);
     }//GEN-LAST:event_powrotButtonActionPerformed
 
     public static void main(String args[]) {

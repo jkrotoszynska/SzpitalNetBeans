@@ -17,17 +17,14 @@ import javax.persistence.TypedQuery;
  * @author Justyna
  */
 public class EkranLogowaniaFrame extends javax.swing.JFrame {
-
+    Lekarz lekarz;
     /**
      * Creates new form LoginScreenFrame
      */
     public EkranLogowaniaFrame() {
         initComponents();
         
-        glowny = new EkranGlownyFrame();
-        glowny.setTitle("Panel lekarza");
-        
-        glowny.setSize(1000,700);
+
     }
     
     EntityManagerFactory emf;
@@ -223,10 +220,14 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
             int login = Integer.parseInt(this.tLogin.getText());
             String password = String.valueOf(jPasswordField1.getPassword());
 //        System.out.print(signIn(login, password));
-            Lekarz lekarz = signIn(login, password);
+            lekarz = signIn(login, password);
             if (lekarz != null) {
                 System.out.println(lekarz);
                 this.setVisible(false);
+                glowny = new EkranGlownyFrame(lekarz);
+                glowny.setTitle("Panel lekarza");
+
+                glowny.setSize(1000,700);
                 glowny.setVisible(true);
             }
         }catch(NumberFormatException e){

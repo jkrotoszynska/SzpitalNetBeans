@@ -1,13 +1,19 @@
 package frontend;
 
+import backend.Lekarz;
+
 public class EkranGlownyFrame extends javax.swing.JFrame {
 
-    public EkranGlownyFrame() {
+    Lekarz lekarz;
+    
+    public EkranGlownyFrame(Lekarz lekarz) {
         initComponents();
         
         pacjenci = new MoiPacjenciFrame();
         pacjenci.setTitle("Panel lekarza");
         pacjenci.setSize(1000,700);
+        
+        this.jId.setText(String.valueOf(lekarz.getIdLekarza()));
         
         wyszukiwarka = new WyszukiwarkaFrame();
         wyszukiwarka.setTitle("Wyszukiwarka");
@@ -254,11 +260,11 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
 
     public static void main(String args[]) {
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EkranGlownyFrame().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new EkranGlownyFrame().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
