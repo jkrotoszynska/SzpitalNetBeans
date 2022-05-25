@@ -1,10 +1,32 @@
 package frontend;
 
+import backend.Pacjent;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+
 public class WyszukiwarkaFrame extends javax.swing.JFrame {
 
     public WyszukiwarkaFrame() {
         initComponents();
         
+    }
+    
+    EntityManagerFactory emf;
+    public EntityManager getEntityManager() {
+        if (emf == null) {
+            emf = Persistence.createEntityManagerFactory("SzpitalPU");
+        }
+        return emf.createEntityManager();
+    }
+    
+    public List<Pacjent> wyszukaj(String nazwisko){
+        EntityManager em = this.getEntityManager();
+        TypedQuery<Pacjent> q = em.createNamedQuery("Pacjent.findByNazwisko", Pacjent.class);
+        q.setParameter("nazwisko", nazwisko);
+        return q.getResultList();
     }
 
     @SuppressWarnings("unchecked")
@@ -103,6 +125,9 @@ public class WyszukiwarkaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jWyszukiwanieActionPerformed
 
     private void bWyszukajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bWyszukajActionPerformed
+        List<Pacjent> listaPacjentow = wyszukaj(this.jWyszukiwanie.getText());
+        System.out.println(listaPacjentow);
+
     }//GEN-LAST:event_bWyszukajActionPerformed
 
     private void powrotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powrotButtonActionPerformed
