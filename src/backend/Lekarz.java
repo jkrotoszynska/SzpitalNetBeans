@@ -1,25 +1,77 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package backend;
 
-public class Lekarz {
-    
-    private int idLekarza;
-    private String imie, nazwisko; 
-    private String specjalizacja, nazwaOddzialu;
+import java.io.Serializable;
+import java.util.Collection;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-    public Lekarz(int idLekarza, String imie, String nazwisko, String specjalizacja, String nazwaOddzialu) {
-        this.idLekarza = idLekarza;
-        this.imie = imie;
-        this.nazwisko = nazwisko;
-        this.specjalizacja = specjalizacja;
-        this.nazwaOddzialu = nazwaOddzialu;
+/**
+ *
+ * @author kajet
+ */
+@Entity
+@Table(name = "Lekarz")
+@NamedQueries({
+    @NamedQuery(name = "Lekarz.findAll", query = "SELECT l FROM Lekarz l"),
+    @NamedQuery(name = "Lekarz.findByIdLekarza", query = "SELECT l FROM Lekarz l WHERE l.idLekarza = :idLekarza"),
+    @NamedQuery(name = "Lekarz.findByHaslo", query = "SELECT l FROM Lekarz l WHERE l.haslo = :haslo"),
+    @NamedQuery(name = "Lekarz.findByImie", query = "SELECT l FROM Lekarz l WHERE l.imie = :imie"),
+    @NamedQuery(name = "Lekarz.findByNazwisko", query = "SELECT l FROM Lekarz l WHERE l.nazwisko = :nazwisko"),
+    @NamedQuery(name = "Lekarz.findBySpecjalizacja", query = "SELECT l FROM Lekarz l WHERE l.specjalizacja = :specjalizacja")})
+public class Lekarz implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @Column(name = "idLekarza")
+    private Long idLekarza;
+    @Column(name = "haslo")
+    private String haslo;
+    @Column(name = "imie")
+    private String imie;
+    @Column(name = "nazwisko")
+    private String nazwisko;
+    @Column(name = "specjalizacja")
+    private String specjalizacja;
+    @OneToMany(mappedBy = "idLekarza")
+    private Collection<HistoriaLeczen> historiaLeczenCollection;
+    @JoinColumn(name = "nazwaOddzialu", referencedColumnName = "nazwaOddzialu")
+    @ManyToOne
+    private Szpital nazwaOddzialu;
+
+    public Lekarz() {
     }
 
-    public int getIdLekarza() {
+    public Lekarz(Long idLekarza) {
+        this.idLekarza = idLekarza;
+    }
+
+    public Long getIdLekarza() {
         return idLekarza;
     }
 
-    public void setIdLekarza(int idLekarza) {
+    public void setIdLekarza(Long idLekarza) {
         this.idLekarza = idLekarza;
+    }
+
+    public String getHaslo() {
+        return haslo;
+    }
+
+    public void setHaslo(String haslo) {
+        this.haslo = haslo;
     }
 
     public String getImie() {
@@ -46,14 +98,45 @@ public class Lekarz {
         this.specjalizacja = specjalizacja;
     }
 
-    public String getNazwaOddzialu() {
+    public Collection<HistoriaLeczen> getHistoriaLeczenCollection() {
+        return historiaLeczenCollection;
+    }
+
+    public void setHistoriaLeczenCollection(Collection<HistoriaLeczen> historiaLeczenCollection) {
+        this.historiaLeczenCollection = historiaLeczenCollection;
+    }
+
+    public Szpital getNazwaOddzialu() {
         return nazwaOddzialu;
     }
 
-    public void setNazwaOddzialu(String nazwaOddzialu) {
+    public void setNazwaOddzialu(Szpital nazwaOddzialu) {
         this.nazwaOddzialu = nazwaOddzialu;
     }
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (idLekarza != null ? idLekarza.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Lekarz)) {
+            return false;
+        }
+        Lekarz other = (Lekarz) object;
+        if ((this.idLekarza == null && other.idLekarza != null) || (this.idLekarza != null && !this.idLekarza.equals(other.idLekarza))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "backend.Lekarz[ idLekarza=" + idLekarza + " ]";
+    }
     
 }
