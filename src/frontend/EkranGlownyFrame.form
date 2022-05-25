@@ -79,11 +79,11 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="61" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="pacjentButton" linkSize="1" alignment="2" min="-2" pref="222" max="-2" attributes="0"/>
+                          <Component id="bPacjent" linkSize="1" alignment="2" min="-2" pref="222" max="-2" attributes="0"/>
                           <Component id="historiaButton" linkSize="1" alignment="2" min="-2" pref="222" max="-2" attributes="0"/>
-                          <Component id="wyszukiwarkaButton" linkSize="1" alignment="2" min="-2" pref="222" max="-2" attributes="0"/>
+                          <Component id="bWyszukiwarka" linkSize="1" alignment="2" min="-2" pref="222" max="-2" attributes="0"/>
                           <Component id="szczegolyButton" linkSize="1" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="wylogujButton" alignment="2" min="-2" pref="225" max="-2" attributes="0"/>
+                          <Component id="bWyloguj" alignment="2" min="-2" pref="225" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   </Group>
@@ -93,22 +93,22 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                      <Component id="pacjentButton" linkSize="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="bPacjent" linkSize="2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="historiaButton" linkSize="2" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="wyszukiwarkaButton" linkSize="2" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="bWyszukiwarka" linkSize="2" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="szczegolyButton" linkSize="2" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace pref="35" max="32767" attributes="0"/>
-                      <Component id="wylogujButton" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="bWyloguj" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="pacjentButton">
+            <Component class="javax.swing.JButton" name="bPacjent">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="93" green="6b" red="44" type="rgb"/>
@@ -129,24 +129,24 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pacjentButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bPacjentActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="historiaButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="93" green="6b" red="44" type="rgb"/>
+                  <Color blue="34" green="26" red="18" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="4c" green="4c" red="4c" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="HISTORIA LECZE&#x143;"/>
                 <Property name="alignmentY" type="float" value="1.0"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Hand Cursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[6, 20, 6, 20]"/>
@@ -156,7 +156,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="historiaButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="wyszukiwarkaButton">
+            <Component class="javax.swing.JButton" name="bWyszukiwarka">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="93" green="6b" red="44" type="rgb"/>
@@ -177,24 +177,24 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wyszukiwarkaButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bWyszukiwarkaActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="szczegolyButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="93" green="6b" red="44" type="rgb"/>
+                  <Color blue="34" green="26" red="18" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="4c" green="4c" red="4c" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="WI&#x118;CEJ SZCZEG&#xd3;&#x141;&#xd3;W"/>
                 <Property name="alignmentY" type="float" value="1.0"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Hand Cursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[6, 20, 6, 20]"/>
@@ -204,7 +204,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="szczegolyButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="wylogujButton">
+            <Component class="javax.swing.JButton" name="bWyloguj">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="93" green="6b" red="44" type="rgb"/>
@@ -225,12 +225,12 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wylogujButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bWylogujActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="jNazwa">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="54" style="3"/>
@@ -247,7 +247,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="jOpis">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SF Pro Display" size="18" style="1"/>
@@ -283,18 +283,20 @@
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel2" min="-2" pref="129" max="-2" attributes="0"/>
-                              <EmptySpace pref="310" max="32767" attributes="0"/>
+                              <Component id="jAvatar" min="-2" pref="129" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jImieNazwisko" min="-2" pref="220" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="oddzialLabel" alignment="1" min="-2" pref="410" max="-2" attributes="0"/>
+                                  <Component id="jOddział" alignment="1" min="-2" pref="410" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="specjalizacjaLabel" pref="410" max="32767" attributes="0"/>
-                                      <Component id="idLabel" max="32767" attributes="0"/>
+                                      <Component id="jSpecjalizacja" pref="410" max="32767" attributes="0"/>
+                                      <Component id="jId" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="29" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -304,20 +306,23 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jAvatar" min="-2" max="-2" attributes="0"/>
+                          <Component id="jImieNazwisko" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      <Component id="idLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="jId" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="specjalizacjaLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="jSpecjalizacja" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="oddzialLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="110" max="32767" attributes="0"/>
+                      <Component id="jOddział" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="116" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="specjalizacjaLabel">
+            <Component class="javax.swing.JLabel" name="jSpecjalizacja">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SF Pro Display" size="20" style="1"/>
@@ -331,7 +336,7 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="idLabel">
+            <Component class="javax.swing.JLabel" name="jId">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SF Pro Display" size="20" style="1"/>
@@ -345,7 +350,7 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="oddzialLabel">
+            <Component class="javax.swing.JLabel" name="jOddzia&#x142;">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SF Pro Display" size="20" style="1"/>
@@ -359,12 +364,14 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="jAvatar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/szpital/images/avat.png"/>
                 </Property>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jImieNazwisko">
             </Component>
           </SubComponents>
         </Container>
