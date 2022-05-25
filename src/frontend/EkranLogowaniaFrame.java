@@ -45,8 +45,9 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
         try{
             Lekarz loggedLekarz = q.getSingleResult();
 //          q.setParameter("haslo", password);
-            System.out.print(loggedLekarz.getHaslo().toString());
-            if (loggedLekarz.getHaslo().toString().equals(password)) {
+            System.out.println(loggedLekarz);
+            System.out.println(loggedLekarz.getHaslo());
+            if (loggedLekarz.getHaslo().equals(password)) {
                 return loggedLekarz;
             }
             
@@ -220,11 +221,11 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             int login = Integer.parseInt(this.tLogin.getText());
-            String password = String.valueOf(jPasswordField1.getPassword()).toString();
+            String password = String.valueOf(jPasswordField1.getPassword());
 //        System.out.print(signIn(login, password));
             Lekarz lekarz = signIn(login, password);
             if (lekarz != null) {
-                System.out.print(lekarz);
+                System.out.println(lekarz);
                 this.setVisible(false);
                 glowny.setVisible(true);
             }
