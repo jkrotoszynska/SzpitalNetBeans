@@ -1,8 +1,6 @@
 package szpital;
 
 import frontend.EkranLogowaniaFrame;
-import static java.awt.Frame.MAXIMIZED_BOTH;
-
 
 public class Start {
 
@@ -13,5 +11,4 @@ public class Start {
         el.setTitle("Centrum zarządzania");
         el.setVisible(true);
     }
-    
 }
