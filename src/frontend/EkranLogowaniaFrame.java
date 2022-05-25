@@ -42,8 +42,8 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
         try{
             Lekarz loggedLekarz = q.getSingleResult();
 //          q.setParameter("haslo", password);
-            System.out.println(loggedLekarz);
-            System.out.println(loggedLekarz.getHaslo());
+//            System.out.println(loggedLekarz);
+//            System.out.println(loggedLekarz.getHaslo());
             if (loggedLekarz.getHaslo().equals(password)) {
                 return loggedLekarz;
             }
@@ -222,7 +222,7 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
 //        System.out.print(signIn(login, password));
             lekarz = signIn(login, password);
             if (lekarz != null) {
-                System.out.println(lekarz);
+//                System.out.println(lekarz);
                 this.setVisible(false);
                 glowny = new EkranGlownyFrame(lekarz);
                 glowny.setTitle("Panel lekarza");
