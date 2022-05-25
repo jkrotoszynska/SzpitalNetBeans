@@ -259,7 +259,7 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_szczegolyButtonActionPerformed
 
     private void wylogujButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wylogujButtonActionPerformed
-        this.setVisible(false);
+        System.exit(0);
     }//GEN-LAST:event_wylogujButtonActionPerformed
 
     public static void main(String args[]) {
