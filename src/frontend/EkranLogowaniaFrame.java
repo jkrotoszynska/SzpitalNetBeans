@@ -37,7 +37,7 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
         return emf.createEntityManager();
     }
     
-    public List<Lekarz> signIn(String login, String password){
+    public List<Lekarz> signIn(int login, String password){
         EntityManager em = getEntityManager();
         TypedQuery<Lekarz> q = em.createNamedQuery("Lekarz.findByIdLekarzaAndHaslo", Lekarz.class);
         q.setParameter("idLekarza", login);
@@ -208,7 +208,7 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
 
     private void bZalogujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bZalogujActionPerformed
         // TODO add your handling code here:
-        String login = tLogin.getText();
+        int login = Integer.parseInt(this.tLogin.getText());
         String password = String.valueOf(jPasswordField1.getPassword());
         
         if (signIn(login, password) != null) {
