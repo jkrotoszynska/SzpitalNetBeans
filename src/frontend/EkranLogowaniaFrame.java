@@ -16,10 +16,10 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
     public EkranLogowaniaFrame() {
         initComponents();
         
-        glowny = new EkranGlownyFrame();
-        glowny.setTitle("Panel lekarza");
-        
-        glowny.setSize(1000,700);
+//        glowny = new EkranGlownyFrame();
+//        glowny.setTitle("Panel lekarza");
+//        
+//        glowny.setSize(1000,700);
     }
 
     /**
@@ -184,8 +184,14 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
 
     private void bZalogujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bZalogujActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        glowny.setVisible(true);
+//        this.setVisible(false);
+        
+        EkranGlownyFrame ekranGlowny = new EkranGlownyFrame();
+        ekranGlowny.idLabel.setText("ID: " + tLogin.getText());
+        ekranGlowny.specjalizacjaLabel.setText("Specjalizacja: " + tLogin.getText());
+        ekranGlowny.oddzialLabel.setText("Oddział: " + tLogin.getText());
+        ekranGlowny.setVisible(true);
+
     }//GEN-LAST:event_bZalogujActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed

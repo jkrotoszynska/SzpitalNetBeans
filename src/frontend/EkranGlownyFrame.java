@@ -14,7 +14,11 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
      * Creates new form EkranGlownyFrame
      */
     public EkranGlownyFrame() {
+        
+        
         initComponents();
+        
+        
         
         pacjenci = new MoiPacjenciFrame();
         pacjenci.setTitle("Panel lekarza");
@@ -57,9 +61,9 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        specjalizacjaLabel = new javax.swing.JLabel();
+        idLabel = new javax.swing.JLabel();
+        oddzialLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -190,17 +194,17 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Specjalizacja:");
+        specjalizacjaLabel.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
+        specjalizacjaLabel.setForeground(new java.awt.Color(0, 0, 0));
+        specjalizacjaLabel.setText("Specjalizacja:");
 
-        jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("ID: ");
+        idLabel.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
+        idLabel.setForeground(new java.awt.Color(0, 0, 0));
+        idLabel.setText("ID: ");
 
-        jLabel7.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Oddział:");
+        oddzialLabel.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
+        oddzialLabel.setForeground(new java.awt.Color(0, 0, 0));
+        oddzialLabel.setText("Oddział:");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/szpital/images/avat.png"))); // NOI18N
 
@@ -209,21 +213,17 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(399, 399, 399))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(487, 487, 487))))
+                        .addContainerGap()
+                        .addComponent(oddzialLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(specjalizacjaLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,12 +231,12 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(jLabel2)
                 .addGap(54, 54, 54)
-                .addComponent(jLabel6)
+                .addComponent(idLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(specjalizacjaLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addComponent(oddzialLabel)
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         background.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 480, 440));
@@ -317,6 +317,7 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
+    public javax.swing.JLabel idLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -325,11 +326,10 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    public javax.swing.JPanel jPanel3;
+    public javax.swing.JLabel oddzialLabel;
+    public javax.swing.JLabel specjalizacjaLabel;
     // End of variables declaration//GEN-END:variables
 
     private MoiPacjenciFrame pacjenci;
