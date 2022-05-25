@@ -184,7 +184,7 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
 
     private void bZalogujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bZalogujActionPerformed
         // TODO add your handling code here:
-//        this.setVisible(false);
+        this.setVisible(false);
         
         EkranGlownyFrame ekranGlowny = new EkranGlownyFrame();
         ekranGlowny.idLabel.setText("ID: " + tLogin.getText());
