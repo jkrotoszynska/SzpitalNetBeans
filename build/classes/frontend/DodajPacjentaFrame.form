@@ -148,9 +148,9 @@
                                   <Component id="jNazwisko" min="-2" pref="247" max="-2" attributes="0"/>
                                   <Component id="jDataUrodzenia" min="-2" pref="247" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="jRadioButton1" min="-2" pref="98" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton2" min="-2" pref="98" max="-2" attributes="0"/>
+                                      <Component id="kobietaRadio" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="mezczyznaRadio" min="-2" pref="98" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -192,12 +192,12 @@
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="PlecText" alignment="3" pref="46" max="32767" attributes="0"/>
-                          <Component id="jRadioButton1" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="jRadioButton2" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="mezczyznaRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="kobietaRadio" alignment="1" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="dodajButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -295,7 +295,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dodajButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+            <Component class="javax.swing.JRadioButton" name="kobietaRadio">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -303,10 +303,10 @@
                 <Property name="text" type="java.lang.String" value="Kobieta"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kobietaRadioActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+            <Component class="javax.swing.JRadioButton" name="mezczyznaRadio">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -314,7 +314,7 @@
                 <Property name="text" type="java.lang.String" value="M&#x119;&#x17c;czyzna"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mezczyznaRadioActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
