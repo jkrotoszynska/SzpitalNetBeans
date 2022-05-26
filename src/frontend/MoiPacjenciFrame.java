@@ -3,11 +3,17 @@ package frontend;
 import backend.HistoriaLeczen;
 import backend.Lekarz;
 import backend.Pacjent;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import javax.swing.DefaultListModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 
 public class MoiPacjenciFrame extends javax.swing.JFrame {
     
@@ -19,6 +25,27 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
         this.glowny = glowny;
         this.lekarz = lekarz;
         
+        DefaultListModel listModel = new DefaultListModel();
+        
+        List<HistoriaLeczen> wszystkieHistorieLekarza =  wylistujHistorie(lekarz);
+        List<Long> peselePowtorzone = new ArrayList<>();
+        
+        for (int i=0; i < wszystkieHistorieLekarza.size(); i++) {
+            peselePowtorzone.add(wszystkieHistorieLekarza.get(i).getPesel().getPesel());
+        }
+        
+        List<Long> pesele = new ArrayList<>(new HashSet<>(peselePowtorzone));
+        
+        for (int i=0; i < pesele.size(); i++) {
+            listModel.addElement(pesele.get(i));
+        }
+        
+        jListaPacjentow.setModel(listModel);
+        
+        jListaPacjentow.addListSelectionListener(e -> {
+            String pacjentPesel = String.valueOf(jListaPacjentow.getSelectedValue());
+            System.out.println(pacjentPesel);
+        });
     }
     
     EntityManagerFactory emf;
@@ -33,7 +60,7 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
         EntityManager em = this.getEntityManager();
         TypedQuery<HistoriaLeczen> q = em.createNamedQuery("HistoriaLeczen.findByIdLekarza", HistoriaLeczen.class);
         q.setParameter("idLekarza", idLekarza.getIdLekarza());
-        System.out.println(q.getResultList());
+//        System.out.println(q.getResultList());
         return q.getResultList();
     }
     
