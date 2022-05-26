@@ -4,19 +4,39 @@ import backend.Lekarz;
 import backend.Pacjent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.swing.ButtonGroup;
 import szpital.Start;
 
 
 public class DodajPacjentaFrame extends javax.swing.JFrame {
 
     private EkranGlownyFrame glowny;
+    private String plec;
     
     public DodajPacjentaFrame(EkranGlownyFrame glowny) {
         initComponents();
         this.glowny = glowny;
+        
+        ButtonGroup BtnGr = new ButtonGroup();
+        BtnGr.add(kobietaRadio);
+        BtnGr.add(mezczyznaRadio);
 
+    }
+    
+    EntityManagerFactory emf;
+    public EntityManager getEntityManager() {
+        if (emf == null) {
+            emf = Persistence.createEntityManagerFactory("SzpitalPU");
+        }
+        return emf.createEntityManager();
     }
 
     @SuppressWarnings("unchecked")
@@ -38,8 +58,8 @@ public class DodajPacjentaFrame extends javax.swing.JFrame {
         jNazwisko = new javax.swing.JTextField();
         jDataUrodzenia = new javax.swing.JTextField();
         dodajButton = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        kobietaRadio = new javax.swing.JRadioButton();
+        mezczyznaRadio = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -123,19 +143,19 @@ public class DodajPacjentaFrame extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Kobieta");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        kobietaRadio.setBackground(new java.awt.Color(255, 255, 255));
+        kobietaRadio.setText("Kobieta");
+        kobietaRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                kobietaRadioActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("Mężczyzna");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        mezczyznaRadio.setBackground(new java.awt.Color(255, 255, 255));
+        mezczyznaRadio.setText("Mężczyzna");
+        mezczyznaRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                mezczyznaRadioActionPerformed(evt);
             }
         });
 
@@ -165,9 +185,9 @@ public class DodajPacjentaFrame extends javax.swing.JFrame {
                             .addComponent(jNazwisko, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jDataUrodzenia, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(kobietaRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(mezczyznaRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(128, 128, 128)
@@ -198,11 +218,11 @@ public class DodajPacjentaFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PlecText, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                    .addComponent(mezczyznaRadio)
+                    .addComponent(kobietaRadio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(dodajButton)
-                .addGap(30, 30, 30))
+                .addGap(81, 81, 81))
         );
 
         background.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 500, 450));
@@ -237,28 +257,66 @@ public class DodajPacjentaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jPeselActionPerformed
 
     private void dodajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dodajButtonActionPerformed
-        // TODO add your handling code here:
+
         Start p = new Start();
         Pacjent pt = new Pacjent();
-        pt.setPesel(Long.parseLong(this.jPesel.getText()));
-        pt.setImie(this.jImie.getText());
-        pt.setNazwisko(this.jNazwisko.getText());
-        try {
-            pt.setDataUrodzenia(new SimpleDateFormat("yyyy-MM-dd").parse(this.jDataUrodzenia.getText()));
-        } catch (ParseException ex) {
-            Logger.getLogger(DodajPacjentaFrame.class.getName()).log(Level.SEVERE, null, ex);
+        
+        // SET PESEL
+        EntityManager em = this.getEntityManager();
+        long szukanyPesel = Long.parseLong(this.jPesel.getText());
+        TypedQuery<Pacjent> zap = em.createNamedQuery("Pacjent.findByPesel", Pacjent.class);
+        zap.setParameter("pesel", szukanyPesel);
+        try{
+            List<Pacjent> szukanypacjent = zap.getResultList();
+            if(szukanypacjent.size() == 0){
+                pt.setPesel(szukanyPesel);
+                
+                // SET IMIE
+                String czyImie = this.jImie.getText();
+                if(czyImie != null){
+                    pt.setImie(this.jImie.getText());
+                }
+
+                // SET NAZWISKO
+                String czyNazwisko = this.jNazwisko.getText();
+                if(czyNazwisko != null){
+                    pt.setNazwisko(this.jNazwisko.getText());
+                }
+
+                // SET DATAURODZENIA
+                try {
+                    pt.setDataUrodzenia(new SimpleDateFormat("yyyy-MM-dd").parse(this.jDataUrodzenia.getText()));
+                } catch (ParseException ex) {
+                    Logger.getLogger(DodajPacjentaFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                // SET PLEC
+                if(plec == "kobieta"){
+                    pt.setPlec(false);
+                }else{
+                    pt.setPlec(true);
+                }
+
+                p.zapisz(pt);
+                System.out.println(pt);
+            }
         }
-        //pt.setPlec(Boolean.parseBoolean(this.jPlec.getText()));
-        p.zapisz(pt);
+        catch(NoResultException e){
+            e.printStackTrace();
+        }
+               
+        
     }//GEN-LAST:event_dodajButtonActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void kobietaRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kobietaRadioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+        plec = "kobieta";
+    }//GEN-LAST:event_kobietaRadioActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void mezczyznaRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mezczyznaRadioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+        plec = "mezczyzna";
+    }//GEN-LAST:event_mezczyznaRadioActionPerformed
 
     public static void main(String args[]) {
         
@@ -285,8 +343,8 @@ public class DodajPacjentaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jOpis;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jPesel;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton kobietaRadio;
+    private javax.swing.JRadioButton mezczyznaRadio;
     private javax.swing.JButton powrotButton;
     // End of variables declaration//GEN-END:variables
 
