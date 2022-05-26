@@ -11,6 +11,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -52,6 +53,10 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public void showMessage(String message){
+        JOptionPane.showMessageDialog(null, message, "Wystąpił błąd!", JOptionPane.ERROR_MESSAGE);
     }
 
     /**
@@ -217,8 +222,13 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
     private void bZalogujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bZalogujActionPerformed
         // TODO add your handling code here:
         try{
+            
+            if(this.tLogin.getText().equals("") || String.valueOf(jPasswordField1.getPassword()).equals("")){
+            showMessage("Uzupełnij puste pola!");
+        }
             int login = Integer.parseInt(this.tLogin.getText());
             String password = String.valueOf(jPasswordField1.getPassword());
+           
 //        System.out.print(signIn(login, password));
             lekarz = signIn(login, password);
             if (lekarz != null) {
@@ -229,6 +239,10 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
 
                 glowny.setSize(1000,700);
                 glowny.setVisible(true);
+            } else {
+                showMessage("Niepoprawne dane do logowania!");
+                jPasswordField1.setText("");
+                tLogin.setText("");
             }
         }catch(NumberFormatException e){
             e.printStackTrace();
