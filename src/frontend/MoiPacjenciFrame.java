@@ -11,8 +11,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import javax.swing.DefaultListModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 public class MoiPacjenciFrame extends javax.swing.JFrame {
@@ -24,6 +22,9 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
         initComponents();
         this.glowny = glowny;
         this.lekarz = lekarz;
+        
+        //zmniejszenie kolumny ID
+        historiaLeczeniaTable.getColumnModel().getColumn(0).setPreferredWidth(10);
         
         DefaultListModel listModel = new DefaultListModel();
         
@@ -43,9 +44,52 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
         jListaPacjentow.setModel(listModel);
         
         jListaPacjentow.addListSelectionListener(e -> {
-            String pacjentPesel = String.valueOf(jListaPacjentow.getSelectedValue());
-            System.out.println(pacjentPesel);
+            wypelnijFormularz(String.valueOf(jListaPacjentow.getSelectedValue()));
         });
+    }
+    
+    public void wypelnijFormularz(String pesel) {
+        Long peselLong = Long.valueOf(pesel);
+        
+        //Informacje o pacjencie
+        List<Pacjent> pacjentEntity = wyszukajPacjenta(peselLong);
+        pacjentImieLabel.setText("IMIĘ: " + String.valueOf(pacjentEntity.get(0).getImie()));
+        pacjentNazwiskoLabel.setText("NAZWISKO: " + String.valueOf(pacjentEntity.get(0).getNazwisko()));
+        pacjentPeselLabel.setText("PESEL: " + String.valueOf(pacjentEntity.get(0).getPesel()));
+        pacjentDataUrodzeniaLabel.setText("D. URO.: " + String.valueOf(pacjentEntity.get(0).getDataUrodzenia().getDate()) + "/" +
+                    String.valueOf(pacjentEntity.get(0).getDataUrodzenia().getMonth() + 1) + "/" +
+                    String.valueOf(pacjentEntity.get(0).getDataUrodzenia().getYear() + 1900));
+        
+        if (pacjentEntity.get(0).getPlec()) {
+            pacjentPlecLabel.setText("PŁEĆ: M");
+        } else {
+            pacjentPlecLabel.setText("PŁEĆ: K");
+        }
+        
+        //Historia lczenia
+        List<HistoriaLeczen> historiaPacjentaEntity = historiePacjenta(pacjentEntity.get(0));
+        DefaultTableModel tableModel = (DefaultTableModel) historiaLeczeniaTable.getModel();
+        
+        if (tableModel.getRowCount() > 0) {
+            tableModel.setRowCount(0);
+        }
+        
+        Object rowData[] = new Object[4];
+        for(int i=0; i < historiaPacjentaEntity.size(); i++) {
+            rowData[0] = historiaPacjentaEntity.get(i).getId();
+            rowData[1] = historiaPacjentaEntity.get(i).getChoroba();
+            rowData[2] = 
+                    String.valueOf(historiaPacjentaEntity.get(i).getDataPrzyjecia().getDate()) + "/" +
+                    String.valueOf(historiaPacjentaEntity.get(i).getDataPrzyjecia().getMonth() + 1) + "/" +
+                    String.valueOf(historiaPacjentaEntity.get(i).getDataPrzyjecia().getYear() + 1900);
+            rowData[3] = 
+                    String.valueOf(historiaPacjentaEntity.get(i).getDataWypisu().getDate()) + "/" +
+                    String.valueOf(historiaPacjentaEntity.get(i).getDataWypisu().getMonth() + 1) + "/" +
+                    String.valueOf(historiaPacjentaEntity.get(i).getDataWypisu().getYear() + 1900);
+            
+            tableModel.addRow(rowData);
+        }
+        
     }
     
     EntityManagerFactory emf;
@@ -70,8 +114,15 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
         TypedQuery<Pacjent> q = em.createNamedQuery("Pacjent.findByPesel", Pacjent.class);
         for(int i=0; i<historiaLeczen.size(); i++) {
             q.setParameter("pesel", historiaLeczen.get(i).getPesel().getPesel());
-            System.out.println(q.getResultList());
+//            System.out.println(q.getResultList());
         }
+        return q.getResultList();
+    }
+    
+    public List<Pacjent> wyszukajPacjenta(Long pesel){
+        EntityManager em = this.getEntityManager();
+        TypedQuery<Pacjent> q = em.createNamedQuery("Pacjent.findByPesel", Pacjent.class);
+        q.setParameter("pesel", pesel);
         return q.getResultList();
     }
     
@@ -79,7 +130,7 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
         EntityManager em = this.getEntityManager();
         TypedQuery<HistoriaLeczen> q = em.createNamedQuery("HistoriaLeczen.findByPesel", HistoriaLeczen.class);
         q.setParameter("pesel", pacjent.getPesel());
-        System.out.println(q.getResultList());
+//        System.out.println(q.getResultList());
         
         return q.getResultList();
     }
@@ -187,9 +238,7 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
                             .addComponent(pacjentNazwiskoLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(pacjentPeselLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pacjentPeselLabel)
                             .addComponent(pacjentDataUrodzeniaLabel))
                         .addGap(127, 127, 127)
                         .addComponent(pacjentPlecLabel)
