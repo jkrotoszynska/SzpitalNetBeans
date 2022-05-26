@@ -225,7 +225,9 @@ public class EkranLogowaniaFrame extends javax.swing.JFrame {
             
             if(this.tLogin.getText().equals("") || String.valueOf(jPasswordField1.getPassword()).equals("")){
             showMessage("Uzupełnij puste pola!");
-        }
+            } else if(this.tLogin.getText().matches("[a-zA-Z]+")){
+                showMessage("Niewłaściwy typ danych!");
+            }
             int login = Integer.parseInt(this.tLogin.getText());
             String password = String.valueOf(jPasswordField1.getPassword());
            
