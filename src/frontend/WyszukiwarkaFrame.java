@@ -24,10 +24,10 @@ public class WyszukiwarkaFrame extends javax.swing.JFrame {
         return emf.createEntityManager();
     }
     
-    public List<Pacjent> wyszukaj(String nazwisko){
+    public List<Pacjent> wyszukaj(Long pesel){
         EntityManager em = this.getEntityManager();
-        TypedQuery<Pacjent> q = em.createNamedQuery("Pacjent.findByNazwisko", Pacjent.class);
-        q.setParameter("nazwisko", nazwisko);
+        TypedQuery<Pacjent> q = em.createNamedQuery("Pacjent.findByPeselLike", Pacjent.class);
+        q.setParameter("pesel", "%"+pesel+"%");
         return q.getResultList();
     }
 
@@ -127,7 +127,7 @@ public class WyszukiwarkaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jWyszukiwanieActionPerformed
 
     private void bWyszukajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bWyszukajActionPerformed
-        List<Pacjent> listaPacjentow = wyszukaj(this.jWyszukiwanie.getText());
+        List<Pacjent> listaPacjentow = wyszukaj(Long.parseLong(this.jWyszukiwanie.getText()));
         System.out.println(listaPacjentow);
 
     }//GEN-LAST:event_bWyszukajActionPerformed
