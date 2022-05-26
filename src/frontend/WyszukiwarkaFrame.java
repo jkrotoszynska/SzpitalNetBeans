@@ -74,14 +74,14 @@ public class WyszukiwarkaFrame extends javax.swing.JFrame {
                 bWyszukajActionPerformed(evt);
             }
         });
-        background.add(bWyszukaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 110, -1));
+        background.add(bWyszukaj, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 130, 30));
 
         jWyszukiwanie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jWyszukiwanieActionPerformed(evt);
             }
         });
-        background.add(jWyszukiwanie, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 300, -1));
+        background.add(jWyszukiwanie, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 280, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
