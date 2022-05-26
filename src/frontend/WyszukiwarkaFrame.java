@@ -1,11 +1,13 @@
 package frontend;
 
 import backend.Pacjent;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import javax.swing.table.DefaultTableModel;
 
 public class WyszukiwarkaFrame extends javax.swing.JFrame {
 
@@ -15,6 +17,23 @@ public class WyszukiwarkaFrame extends javax.swing.JFrame {
         initComponents();
         this.glowny = glowny;
     }
+    
+    public class PacjentEntity {
+        public Long pesel;
+        public String imie;
+        public String nazwisko;
+        public String dataUrodzenia;
+        public String plec;
+        
+        public PacjentEntity(Long Pesel, String Imie, String Nazwisko, String DataUrodzenia, String Plec) {
+            this.pesel = Pesel;
+            this.imie = Imie;
+            this.nazwisko = Nazwisko;
+            this.dataUrodzenia = DataUrodzenia;
+            this.plec = Plec;
+        }
+    }
+    
     
     EntityManagerFactory emf;
     public EntityManager getEntityManager() {
@@ -90,7 +109,7 @@ public class WyszukiwarkaFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Pesel", "Nazwisko", "Choroba", "Oddział", "ID Lekarza"
+                "Pesel", "Imię", "Nazwisko", "Data Urodzenia", "Płeć"
             }
         ) {
             Class[] types = new Class [] {
@@ -161,8 +180,50 @@ public class WyszukiwarkaFrame extends javax.swing.JFrame {
 
     private void bWyszukajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bWyszukajActionPerformed
         List<Pacjent> listaPacjentow = wyszukaj(Long.parseLong(this.jWyszukiwanie.getText()));
+//        ArrayList<PacjentEntity> pacjentsList = new ArrayList<PacjentEntity>();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        
+        if (model.getRowCount() > 0) {
+            model.setRowCount(0);
+        }
+        
         System.out.println(listaPacjentow);
 
+//        for (int i=0; i < listaPacjentow.size(); i++) {
+//            Long pesel = listaPacjentow.get(i).getPesel();
+//            String imie = listaPacjentow.get(i).getImie();
+//            String nazwisko = listaPacjentow.get(i).getNazwisko();
+//            String dataUrodzenia = listaPacjentow.get(i).getDataUrodzenia().toString();
+//            String plec;
+//                if (String.valueOf(listaPacjentow.get(i).getPlec()).equals("0")) {
+//                    plec = "Kobieta";
+//                } else {
+//                    plec = "Mezczyzna";
+//                }
+//            PacjentEntity pacjent = new PacjentEntity(pesel, imie, nazwisko, dataUrodzenia, plec);
+//            pacjentsList.add(pacjent);           
+//        }
+        
+        
+        Object rowData[] = new Object[5];
+        for(int i=0; i < listaPacjentow.size(); i++) {
+            rowData[0] = listaPacjentow.get(i).getPesel();
+            rowData[1] = listaPacjentow.get(i).getImie();
+            rowData[2] = listaPacjentow.get(i).getNazwisko();
+            rowData[3] =
+                    String.valueOf(listaPacjentow.get(i).getDataUrodzenia().getDate()) + "/" +
+                    String.valueOf(listaPacjentow.get(i).getDataUrodzenia().getMonth() + 1) + "/" +
+                    String.valueOf(listaPacjentow.get(i).getDataUrodzenia().getYear() + 1900);
+            
+            if(listaPacjentow.get(i).getPlec()) {
+                rowData[4] = "Mężczyzna";
+            } else {
+                rowData[4] = "Kobieta";
+            }
+            
+            model.addRow(rowData);
+        }
+        
     }//GEN-LAST:event_bWyszukajActionPerformed
 
     private void powrotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powrotButtonActionPerformed
