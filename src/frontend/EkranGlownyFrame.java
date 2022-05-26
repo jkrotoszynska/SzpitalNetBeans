@@ -23,6 +23,10 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
         wyszukiwarka.setTitle("Wyszukiwarka");
         wyszukiwarka.setSize(1000,700);
         
+        dodaj = new DodajPacjentaFrame(this);
+        dodaj.setTitle("Dodawanie nowego pacjenta");
+        dodaj.setSize(1000,700);
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -97,12 +101,12 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
             }
         });
 
-        szczegolyButton.setBackground(new java.awt.Color(24, 38, 52));
+        szczegolyButton.setBackground(new java.awt.Color(68, 107, 147));
         szczegolyButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        szczegolyButton.setForeground(new java.awt.Color(76, 76, 76));
-        szczegolyButton.setText("WIĘCEJ SZCZEGÓŁÓW");
+        szczegolyButton.setForeground(new java.awt.Color(255, 255, 255));
+        szczegolyButton.setText("DODAJ PACJENTA");
         szczegolyButton.setAlignmentY(1.0F);
-        szczegolyButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        szczegolyButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         szczegolyButton.setMargin(new java.awt.Insets(6, 20, 6, 20));
         szczegolyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,15 +147,15 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
+                .addContainerGap(70, Short.MAX_VALUE)
+                .addComponent(szczegolyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(bPacjent)
-                .addGap(34, 34, 34)
+                .addGap(26, 26, 26)
                 .addComponent(historiaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(bWyszukiwarka, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(szczegolyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
                 .addComponent(bWyloguj, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63))
         );
@@ -259,12 +263,14 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_bWyszukiwarkaActionPerformed
 
-    private void szczegolyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_szczegolyButtonActionPerformed
-    }//GEN-LAST:event_szczegolyButtonActionPerformed
-
     private void bWylogujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bWylogujActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bWylogujActionPerformed
+
+    private void szczegolyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_szczegolyButtonActionPerformed
+        dodaj.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_szczegolyButtonActionPerformed
 
     public static void main(String args[]) {
 
@@ -294,6 +300,7 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private MoiPacjenciFrame pacjenci;
-    private WyszukiwarkaFrame wyszukiwarka; 
+    private WyszukiwarkaFrame wyszukiwarka;
+    private DodajPacjentaFrame dodaj;
 
 }
