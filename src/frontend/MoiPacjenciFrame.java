@@ -18,9 +18,6 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
         initComponents();
         this.glowny = glowny;
         this.lekarz = lekarz;
-        List<HistoriaLeczen> historia = wylistujHistorie(lekarz);
-        wylistujPacjentow(historia);
-        
         
     }
     
@@ -48,6 +45,15 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
             q.setParameter("pesel", historiaLeczen.get(i).getPesel().getPesel());
             System.out.println(q.getResultList());
         }
+        return q.getResultList();
+    }
+    
+    public List<HistoriaLeczen> historiePacjenta(Pacjent pacjent){
+        EntityManager em = this.getEntityManager();
+        TypedQuery<HistoriaLeczen> q = em.createNamedQuery("HistoriaLeczen.findByPesel", HistoriaLeczen.class);
+        q.setParameter("pesel", pacjent.getPesel());
+        System.out.println(q.getResultList());
+        
         return q.getResultList();
     }
     @SuppressWarnings("unchecked")
