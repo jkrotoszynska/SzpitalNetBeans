@@ -22,6 +22,14 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jListaPacjentow = new javax.swing.JList<>();
         jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        historiaLeczeniaTable = new javax.swing.JTable();
+        jSeparator1 = new javax.swing.JSeparator();
+        pacjentNazwiskoLabel = new javax.swing.JLabel();
+        pacjentImieLabel = new javax.swing.JLabel();
+        pacjentPeselLabel = new javax.swing.JLabel();
+        pacjentDataUrodzeniaLabel = new javax.swing.JLabel();
+        pacjentPlecLabel = new javax.swing.JLabel();
         jNazwa = new javax.swing.JLabel();
         jOpis = new javax.swing.JLabel();
         powrotButton = new javax.swing.JButton();
@@ -47,15 +55,99 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        historiaLeczeniaTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Choroba", "Data Przyjęcia", "Data Wypisu"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(historiaLeczeniaTable);
+
+        pacjentNazwiskoLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pacjentNazwiskoLabel.setForeground(new java.awt.Color(0, 0, 0));
+        pacjentNazwiskoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pacjentNazwiskoLabel.setText("NAZWISKO: ");
+
+        pacjentImieLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pacjentImieLabel.setForeground(new java.awt.Color(0, 0, 0));
+        pacjentImieLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pacjentImieLabel.setText("IMIĘ: ");
+
+        pacjentPeselLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pacjentPeselLabel.setForeground(new java.awt.Color(0, 0, 0));
+        pacjentPeselLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pacjentPeselLabel.setText("PESEL: ");
+
+        pacjentDataUrodzeniaLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pacjentDataUrodzeniaLabel.setForeground(new java.awt.Color(0, 0, 0));
+        pacjentDataUrodzeniaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pacjentDataUrodzeniaLabel.setText("D. URO.:");
+
+        pacjentPlecLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pacjentPlecLabel.setForeground(new java.awt.Color(0, 0, 0));
+        pacjentPlecLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pacjentPlecLabel.setText("PŁEĆ: ");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pacjentImieLabel)
+                            .addComponent(pacjentNazwiskoLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(pacjentPeselLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pacjentDataUrodzeniaLabel))
+                        .addGap(127, 127, 127)
+                        .addComponent(pacjentPlecLabel)
+                        .addGap(58, 58, 58))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pacjentImieLabel)
+                    .addComponent(pacjentDataUrodzeniaLabel)
+                    .addComponent(pacjentPlecLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pacjentNazwiskoLabel)
+                    .addComponent(pacjentPeselLabel))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         background.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 480, 440));
@@ -115,11 +207,19 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JList<String> jListaPacjentow;
+    public javax.swing.JTable historiaLeczeniaTable;
+    public javax.swing.JList<String> jListaPacjentow;
     private javax.swing.JLabel jNazwa;
     private javax.swing.JLabel jOpis;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel pacjentDataUrodzeniaLabel;
+    private javax.swing.JLabel pacjentImieLabel;
+    private javax.swing.JLabel pacjentNazwiskoLabel;
+    private javax.swing.JLabel pacjentPeselLabel;
+    private javax.swing.JLabel pacjentPlecLabel;
     private javax.swing.JButton powrotButton;
     // End of variables declaration//GEN-END:variables
 
