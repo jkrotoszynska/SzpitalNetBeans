@@ -10,10 +10,6 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
         initComponents();
         this.lekarz = lekarz;
         
-        pacjenci = new MoiPacjenciFrame(this, lekarz);
-        pacjenci.setTitle("Panel lekarza");
-        pacjenci.setSize(1000,700);
-        
         this.jImieNazwisko.setText(String.valueOf(lekarz.getImie()) + ' ' + String.valueOf(lekarz.getNazwisko()));
         this.jId.setText("ID: " + String.valueOf(lekarz.getIdLekarza()));
         this.jSpecjalizacja.setText("Specjalizacja: " + String.valueOf(lekarz.getSpecjalizacja()));
@@ -251,6 +247,9 @@ public class EkranGlownyFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bPacjentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPacjentActionPerformed
+        pacjenci = new MoiPacjenciFrame(this, lekarz);
+        pacjenci.setTitle("Panel lekarza");
+        pacjenci.setSize(1000,700);
         pacjenci.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bPacjentActionPerformed
