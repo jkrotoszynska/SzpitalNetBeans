@@ -1,6 +1,13 @@
 package frontend;
 
+import backend.HistoriaLeczen;
 import backend.Lekarz;
+import backend.Pacjent;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 public class MoiPacjenciFrame extends javax.swing.JFrame {
     
@@ -13,7 +20,42 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
         this.lekarz = lekarz;
         
     }
-
+    
+    EntityManagerFactory emf;
+    public EntityManager getEntityManager() {
+        if (emf == null) {
+            emf = Persistence.createEntityManagerFactory("SzpitalPU");
+        }
+        return emf.createEntityManager();
+    }
+    //pobierz historie leczeń pacjentów zalogowanego lekarza
+    public List<HistoriaLeczen> wylistujHistorie(Lekarz idLekarza){
+        EntityManager em = this.getEntityManager();
+        TypedQuery<HistoriaLeczen> q = em.createNamedQuery("HistoriaLeczen.findByIdLekarza", HistoriaLeczen.class);
+        q.setParameter("idLekarza", idLekarza.getIdLekarza());
+        System.out.println(q.getResultList());
+        return q.getResultList();
+    }
+    
+    //z pobranej historii leczeń wyciągnij pesele
+    public List<Pacjent> wylistujPacjentow(List<HistoriaLeczen> historiaLeczen){
+        EntityManager em = this.getEntityManager();
+        TypedQuery<Pacjent> q = em.createNamedQuery("Pacjent.findByPesel", Pacjent.class);
+        for(int i=0; i<historiaLeczen.size(); i++) {
+            q.setParameter("pesel", historiaLeczen.get(i).getPesel().getPesel());
+            System.out.println(q.getResultList());
+        }
+        return q.getResultList();
+    }
+    
+    public List<HistoriaLeczen> historiePacjenta(Pacjent pacjent){
+        EntityManager em = this.getEntityManager();
+        TypedQuery<HistoriaLeczen> q = em.createNamedQuery("HistoriaLeczen.findByPesel", HistoriaLeczen.class);
+        q.setParameter("pesel", pacjent.getPesel());
+        System.out.println(q.getResultList());
+        
+        return q.getResultList();
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -190,7 +232,7 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void powrotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powrotButtonActionPerformed
         glowny.setVisible(true);
         this.setVisible(false);

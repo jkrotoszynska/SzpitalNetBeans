@@ -30,7 +30,9 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "HistoriaLeczen.findById", query = "SELECT h FROM HistoriaLeczen h WHERE h.id = :id"),
     @NamedQuery(name = "HistoriaLeczen.findByChoroba", query = "SELECT h FROM HistoriaLeczen h WHERE h.choroba = :choroba"),
     @NamedQuery(name = "HistoriaLeczen.findByDataPrzyjecia", query = "SELECT h FROM HistoriaLeczen h WHERE h.dataPrzyjecia = :dataPrzyjecia"),
-    @NamedQuery(name = "HistoriaLeczen.findByDataWypisu", query = "SELECT h FROM HistoriaLeczen h WHERE h.dataWypisu = :dataWypisu")})
+    @NamedQuery(name = "HistoriaLeczen.findByDataWypisu", query = "SELECT h FROM HistoriaLeczen h WHERE h.dataWypisu = :dataWypisu"),
+    @NamedQuery(name = "HistoriaLeczen.findByIdLekarza", query = "SELECT h FROM HistoriaLeczen h WHERE h.idLekarza.idLekarza = :idLekarza"),
+    @NamedQuery(name = "HistoriaLeczen.findByPesel", query = "SELECT h FROM HistoriaLeczen h WHERE h.pesel.pesel = :pesel")})
 public class HistoriaLeczen implements Serializable {
 
     private static final long serialVersionUID = 1L;
