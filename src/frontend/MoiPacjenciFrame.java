@@ -24,7 +24,7 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
         this.lekarz = lekarz;
         
         //zmniejszenie kolumny ID
-        historiaLeczeniaTable.getColumnModel().getColumn(0).setPreferredWidth(10);
+        historiaLeczeniaTable.getColumnModel().getColumn(0).setPreferredWidth(5);
         
         DefaultListModel listModel = new DefaultListModel();
         
@@ -199,6 +199,11 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(historiaLeczeniaTable);
+        if (historiaLeczeniaTable.getColumnModel().getColumnCount() > 0) {
+            historiaLeczeniaTable.getColumnModel().getColumn(0).setResizable(false);
+            historiaLeczeniaTable.getColumnModel().getColumn(2).setResizable(false);
+            historiaLeczeniaTable.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         pacjentNazwiskoLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         pacjentNazwiskoLabel.setForeground(new java.awt.Color(0, 0, 0));
@@ -233,21 +238,25 @@ public class MoiPacjenciFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pacjentImieLabel)
                             .addComponent(pacjentNazwiskoLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(70, 70, 70)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pacjentPeselLabel)
-                            .addComponent(pacjentDataUrodzeniaLabel))
-                        .addGap(127, 127, 127)
-                        .addComponent(pacjentPlecLabel)
-                        .addGap(58, 58, 58))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(pacjentDataUrodzeniaLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
+                                .addComponent(pacjentPlecLabel))
+                            .addComponent(pacjentPeselLabel))
+                        .addGap(50, 50, 50))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE))
+                        .addComponent(jSeparator1)
                         .addContainerGap())))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

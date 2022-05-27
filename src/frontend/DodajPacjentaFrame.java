@@ -216,10 +216,11 @@ public class DodajPacjentaFrame extends javax.swing.JFrame {
                     .addComponent(DataText, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                     .addComponent(jDataUrodzenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PlecText, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                    .addComponent(mezczyznaRadio)
-                    .addComponent(kobietaRadio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kobietaRadio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(PlecText, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                        .addComponent(mezczyznaRadio)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(dodajButton)
                 .addGap(81, 81, 81))
@@ -249,11 +250,9 @@ public class DodajPacjentaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_powrotButtonActionPerformed
 
     private void jImieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jImieActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jImieActionPerformed
 
     private void jPeselActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPeselActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jPeselActionPerformed
 
     private void dodajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dodajButtonActionPerformed
@@ -304,17 +303,13 @@ public class DodajPacjentaFrame extends javax.swing.JFrame {
         catch(NoResultException e){
             e.printStackTrace();
         }
-               
-        
     }//GEN-LAST:event_dodajButtonActionPerformed
 
     private void kobietaRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kobietaRadioActionPerformed
-        // TODO add your handling code here:
         plec = "kobieta";
     }//GEN-LAST:event_kobietaRadioActionPerformed
 
     private void mezczyznaRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mezczyznaRadioActionPerformed
-        // TODO add your handling code here:
         plec = "mezczyzna";
     }//GEN-LAST:event_mezczyznaRadioActionPerformed
 
@@ -347,5 +342,4 @@ public class DodajPacjentaFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton mezczyznaRadio;
     private javax.swing.JButton powrotButton;
     // End of variables declaration//GEN-END:variables
-
 }

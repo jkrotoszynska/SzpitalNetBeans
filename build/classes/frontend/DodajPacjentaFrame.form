@@ -190,10 +190,12 @@
                           <Component id="jDataUrodzenia" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="PlecText" alignment="3" pref="46" max="32767" attributes="0"/>
-                          <Component id="mezczyznaRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="kobietaRadio" alignment="1" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="PlecText" alignment="3" pref="46" max="32767" attributes="0"/>
+                              <Component id="mezczyznaRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="dodajButton" min="-2" max="-2" attributes="0"/>

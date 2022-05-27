@@ -204,7 +204,6 @@ public class WyszukiwarkaFrame extends javax.swing.JFrame {
 //            pacjentsList.add(pacjent);           
 //        }
         
-        
         Object rowData[] = new Object[5];
         for(int i=0; i < listaPacjentow.size(); i++) {
             rowData[0] = listaPacjentow.get(i).getPesel();
