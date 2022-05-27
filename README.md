@@ -10,9 +10,9 @@ __Data zaliczenia:__ 27.05.2022
 ***
 
 __Autorzy:__  
-Kacper Jach
-Justyna Krotoszyńska
-Kajetan Warmbier
+Kacper Jach   
+Justyna Krotoszyńska   
+Kajetan Warmbier   
 # Ekrany aplikacji
 ![Ekran logowania](./images/jpa1.png)
 ![Ekran główny](./images/jpa2.png)
